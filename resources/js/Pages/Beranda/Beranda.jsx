@@ -6,8 +6,8 @@ export default function Beranda({ profil }) {
             <div>
                 <Navbar />
             </div>
-            <div className="w-full min-h-screen flex justify-between px-16 gap-3 items-center">
-                <div className="w-1/2 pl-16">
+            <div className="w-full min-h-screen flex flex-col md:flex-row justify-center md:justify-between px-4 md:px-8 lg:px-8 xl:px-16 gap-3 items-center">
+                <div className="w-[90%] lg:w-1/2 px-4 md:px-8 lg:px-8 xl:px-16">
                     <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
                         SELAMAT DATANG
                     </h4>
@@ -20,7 +20,7 @@ export default function Beranda({ profil }) {
                             : "ikatan pelajar putri nahdatul ulama"}
                     </h1>
                 </div>
-                <div className="w-1/2 flex justify-center">
+                <div className="w-[90%] lg:w-1/2 flex justify-center">
                     <img src={"images/wisuda.png"} className="w-[50%]" alt="" />
                 </div>
             </div>

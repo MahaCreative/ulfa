@@ -87,7 +87,7 @@ export default function Event(props) {
             </div>
             <div>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={addTrigger}
                     closeModal={addModalClose}
                     headerTitle={"Tambah Anggota"}
@@ -95,7 +95,7 @@ export default function Event(props) {
                     <Create onClose={addModalClose} model={model} />
                 </Modal>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={editTrigger}
                     closeModal={editModalClose}
                     headerTitle={"Edit Anggota"}
@@ -103,7 +103,7 @@ export default function Event(props) {
                     {/* <Update onClose={editModalClose} model={model} /> */}
                 </Modal>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={deleteTrigger}
                     closeModal={deleteModalClose}
                     headerTitle={"delete Anggota"}
@@ -132,12 +132,12 @@ export default function Event(props) {
             <p className="text-emerald-400">
                 Data Anggota Ikatan Pelajar Putri Nahdatul Ulama
             </p>
-            <div className="px-4 border border-emerald-300 rounded-lg">
+            <div className="px-4 border border-emerald-300 rounded-lg py-2.5">
                 <div className="flex justify-between items-center py-2.5">
                     <div className="flex gap-3">
                         <Link
                             href={route("event-create")}
-                            className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
+                            className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
                         >
                             Tambah Event
                         </Link>
@@ -155,20 +155,20 @@ export default function Event(props) {
                     <Table>
                         <Table.Thead>
                             <tr>
-                                <Table.Th>No</Table.Th>
-                                <Table.Th>Judul Event</Table.Th>
-                                <Table.Th>Tanggal Mulai</Table.Th>
-                                <Table.Th>Tanggal Berakhir</Table.Th>
-                                <Table.Th>Penyelenggara</Table.Th>
-                                <Table.Th>Aksi</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">No</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Judul Event</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Tanggal Mulai</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Tanggal Berakhir</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Penyelenggara</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Aksi</Table.Th>
                             </tr>
                         </Table.Thead>
                         <Table.Tbody>
                             {event ? (
                                 event.map((item, key) => (
                                     <tr key={key + 1}>
-                                        <Table.Td>{key + 1}</Table.Td>
-                                        <Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{key + 1}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
                                             <div className="flex gap-3 items-center">
                                                 <img
                                                     className="w-20"
@@ -181,19 +181,19 @@ export default function Event(props) {
                                                 <p>{item.judul}</p>
                                             </div>
                                         </Table.Td>
-                                        <Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {item.tanggal_mulai}
-                                        </Table.Td>
+                                        </Table.Td >
                                         <Table.Td>
                                             {item.tanggal_berakhir}
                                         </Table.Td>
-                                        <Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {item.penyelenggara}
                                         </Table.Td>
                                         {/* <Table.Td>{ item.telp}</Table.Td>
                                   <Table.Td>{ item.angkatan}</Table.Td> */}
                                         <Table.Td>
-                                            <Table.Dropdown>
+                                            <Table.Dropdown className="text-sm md:text-md lg:text-lg">
                                                 <Menu>
                                                     <Table.DropdownButton>
                                                         <Table.DropdownItem>

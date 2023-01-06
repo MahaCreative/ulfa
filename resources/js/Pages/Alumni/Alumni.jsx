@@ -86,7 +86,7 @@ export default function Alumni(props) {
             </div>
             <div>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={addTrigger}
                     closeModal={addModalClose}
                     headerTitle={"Tambah Anggota"}
@@ -94,7 +94,7 @@ export default function Alumni(props) {
                     <Create onClose={addModalClose} model={model} />
                 </Modal>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={editTrigger}
                     closeModal={editModalClose}
                     headerTitle={"Edit Anggota"}
@@ -102,7 +102,7 @@ export default function Alumni(props) {
                     <Update onClose={editModalClose} model={model} />
                 </Modal>
                 <Modal
-                    size={"w-[50%]"}
+                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={deleteTrigger}
                     closeModal={deleteModalClose}
                     headerTitle={"delete Anggota"}
@@ -131,23 +131,23 @@ export default function Alumni(props) {
             <p className="text-emerald-400">
                 Data Alumni Ikatan Pelajar Putri Nahdatul Ulama
             </p>
-            <div className="px-4 border border-emerald-300 rounded-lg">
+            <div className="px-4 border border-emerald-300 rounded-lg py-2.5">
                 <div className="flex justify-between items-center py-2.5">
                     <div className="flex gap-3">
                         <button
                             onClick={addModalHandler}
-                            className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
+                            className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
                         >
-                            Tambah Anggota
+                            Tambah Alumni
                         </button>
-                        <button className="rounded-md bg-emerald-500 text-white font-fira px-4 py-1.5">
-                            Cetak Anggota
+                        <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
+                            Cetak Alumni
                         </button>
                         <input
                             onChange={(e) =>
                                 setParams({ ...params, search: e.target.value })
                             }
-                            className="rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                            className="rounded-md border border-emerald-500 text-emerald-400 font-fira outline-none focus:ring focus:ring-emerald-400/30 px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl"
                             type={"text"}
                             placeholder="Cari"
                         />
@@ -157,23 +157,23 @@ export default function Alumni(props) {
                     <Table>
                         <Table.Thead>
                             <tr>
-                                <Table.Th>No</Table.Th>
-                                <Table.Th>Nama</Table.Th>
-                                <Table.Th>Telp</Table.Th>
-                                <Table.Th>Angktan</Table.Th>
-                                <Table.Th>Aksi</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">No</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Nama</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Telp</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Angktan</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Aksi</Table.Th>
                             </tr>
                         </Table.Thead>
                         <Table.Tbody>
                             {alumni ? (
                                 alumni.map((item, key) => (
                                     <tr key={key + 1}>
-                                        <Table.Td>{key + 1}</Table.Td>
-                                        <Table.Td>{item.nama_lengkap}</Table.Td>
-                                        <Table.Td>{item.telp}</Table.Td>
-                                        <Table.Td>{item.angkatan}</Table.Td>
-                                        <Table.Td>
-                                            <Table.Dropdown>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{key + 1}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.nama_lengkap}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.telp}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.angkatan}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            <Table.Dropdown className="text-sm md:text-md lg:text-lg">
                                                 <Menu>
                                                     <Table.DropdownButton>
                                                         <Table.DropdownButton>
