@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/inertia-react';
-import React from 'react';
-import DropdownMenu from './DropdownMenu';
+import { Link } from "@inertiajs/inertia-react";
+import React from "react";
+import DropdownMenu from "./DropdownMenu";
 
 export default function ResponsiveNavigation() {
     return (
@@ -28,23 +28,11 @@ export default function ResponsiveNavigation() {
                         </svg>
                     }
                 >
-                    <DropdownMenu.Link href={'/'}>Home</DropdownMenu.Link>
-                    <DropdownMenu.Link href={'/articles'}>
-                        Articles
+                    <DropdownMenu.Link href={route("beranda")}>
+                        Home
                     </DropdownMenu.Link>
-                    <DropdownMenu.Link >
-                        Dashboard
-                    </DropdownMenu.Link>
-                    <DropdownMenu.Link href={'#'}>My profile</DropdownMenu.Link>
-                    <DropdownMenu.Link href={'#'}>Settings</DropdownMenu.Link>
-                    <DropdownMenu.Link href={'#'}>
-                        New article
-                    </DropdownMenu.Link>
-                    <DropdownMenu.Link href={'#'}>
-                        My articles
-                    </DropdownMenu.Link>
-                    <DropdownMenu.Link href={'#'}>
-                        New article
+                    <DropdownMenu.Link href={route("event-user")}>
+                        Event
                     </DropdownMenu.Link>
                     <DropdownMenu.Link
                         // href={route('logout')}

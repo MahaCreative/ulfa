@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import clsx from 'clsx';
-import { InertiaLink } from '@inertiajs/inertia-react';
+import React, { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import clsx from "clsx";
+import { InertiaLink } from "@inertiajs/inertia-react";
 
 function DropdownMenu({ toggleAnimate = true, label, children }) {
     return (
@@ -10,8 +10,8 @@ function DropdownMenu({ toggleAnimate = true, label, children }) {
                 <>
                     <Menu.Button
                         className={clsx(
-                            'flex items-center gap-x-2 text-gray-400',
-                            open && 'text-white'
+                            "flex items-center gap-x-2 text-gray-400",
+                            open && "text-white"
                         )}
                     >
                         {label}
@@ -19,8 +19,8 @@ function DropdownMenu({ toggleAnimate = true, label, children }) {
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={clsx(
-                                    'h-4 w-4 transition duration-200',
-                                    open && 'rotate-180'
+                                    "h-4 w-4 transition duration-200",
+                                    open && "rotate-180"
                                 )}
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
@@ -59,8 +59,10 @@ function Link({ isActive = false, children, ...props }) {
                 <InertiaLink className="block w-full text-left" {...props}>
                     <div
                         className={clsx(
-                            (active || isActive) ? 'bg-blue-700 text-white' : 'text-gray-400',
-                            'inline-block rounded-lg px-2 py-1 text-left text-sm font-medium'
+                            active || isActive
+                                ? "bg-blue-700 text-white"
+                                : "text-gray-400",
+                            "inline-block rounded-lg px-2 py-1 text-left text-sm font-medium"
                         )}
                     >
                         {children}

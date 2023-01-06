@@ -1,10 +1,10 @@
-import { Menu } from '@headlessui/react';
-import { Link } from '@inertiajs/inertia-react';
-import clsx from 'clsx';
+import { Menu } from "@headlessui/react";
+import { Link } from "@inertiajs/inertia-react";
+import clsx from "clsx";
 
-const Table = ({ children, className = '' }) => {
+const Table = ({ children, className = "" }) => {
     return (
-        <div className={clsx(className, 'flex flex-col')}>
+        <div className={clsx(className, "flex flex-col")}>
             <div className="overflow-x-auto">
                 <div className="inline-block min-w-full align-middle">
                     <table className="min-w-full divide-y divide-gray-200">
@@ -17,24 +17,20 @@ const Table = ({ children, className = '' }) => {
 };
 
 const Thead = ({ className, children }) => {
-    return (
-        <thead className={className}>{children}</thead>
-    );
+    return <thead className={className}>{children}</thead>;
 };
 
 const Tbody = ({ children }) => {
     return (
-        <tbody className="divide-y divide-gray-200 bg-white">
-            {children}
-        </tbody>
+        <tbody className="divide-y divide-gray-200 bg-white">{children}</tbody>
     );
 };
 
-const Td = ({ className = '', children, ...props }) => {
+const Td = ({ className = "", children, ...props }) => {
     return (
         <td
             {...props}
-            className={clsx(className, 'whitespace-nowrap px-6 py-4')}
+            className={clsx(className, "whitespace-nowrap px-6 py-4")}
         >
             {children}
         </td>
@@ -47,7 +43,7 @@ const Th = ({ className, children }) => {
             scope="col"
             className={clsx(
                 className,
-                'whitespace-nowrap px-6 py-3 text-left text-sm font-semibold text-black'
+                "whitespace-nowrap px-6 py-3 text-left text-sm font-semibold text-black"
             )}
         >
             {children}
@@ -55,7 +51,7 @@ const Th = ({ className, children }) => {
     );
 };
 
-const DropdownItem = ({ children, className = '', ...props }) => {
+const DropdownItem = ({ children, className = "", ...props }) => {
     return (
         <Menu.Item>
             {({ active }) => (
@@ -65,9 +61,9 @@ const DropdownItem = ({ children, className = '', ...props }) => {
                     className={clsx(
                         className,
                         active
-                            ? 'bg-gray-50 text-black'
-                            : 'bg-white text-black',
-                        'block w-full py-2 px-4 text-left text-sm font-medium text-black hover:bg-blue-50 hover:text-blue-600'
+                            ? "bg-gray-50 text-black"
+                            : "bg-white text-black",
+                        "block w-full py-2 px-4 text-left text-sm font-medium text-black hover:bg-blue-50 hover:text-blue-600"
                     )}
                 >
                     {children}
@@ -84,9 +80,9 @@ const DropdownButton = ({ className, ...props }) => {
                 <button
                     {...props}
                     className={`${
-                        active ? 'bg-gray-50 text-black' : 'bg-white text-black'
+                        active ? "bg-gray-50 text-black" : "bg-white text-black"
                     } block w-full py-2 px-4 text-left text-sm font-medium text-black hover:bg-blue-50 hover:text-blue-600 ${
-                        className ? className : ''
+                        className ? className : ""
                     }`}
                 >
                     {props.children}

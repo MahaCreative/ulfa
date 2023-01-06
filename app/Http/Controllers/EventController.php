@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $event = Event::fastPaginate();
+        $event = [];
+        if ($request->search) {
+            $event = Event::where('judul', 'like', '%' . $request->search . '%')->fastPaginate();
+        } else {
+            $event = Event::fastPaginate();
+        }
+
         return inertia('Event/Event', ['event' => EventResource::collection($event)]);
     }
     public function create()

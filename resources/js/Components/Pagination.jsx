@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/inertia-react';
-import clsx from 'clsx'
-import React from 'react';
+import { Link } from "@inertiajs/inertia-react";
+import clsx from "clsx";
+import React from "react";
 
 export default function Pagination({ meta, links }) {
     return (
@@ -37,26 +37,37 @@ export default function Pagination({ meta, links }) {
                             </li>
                         )}
                     </ul>
-
                     <ul className="hidden mt-10 justify-center md:flex items-center gap-x-1">
                         {meta.links.map((item, i) => {
                             return item.url != null ? (
-                                item.label.includes('Previous') ? (
-                                    <PaginateLink active={item.active} key={i} href={item.url}>
-                                        <LeftIcon/>
+                                item.label.includes("Previous") ? (
+                                    <PaginateLink
+                                        active={item.active}
+                                        key={i}
+                                        href={item.url}
+                                    >
+                                        <LeftIcon />
                                     </PaginateLink>
-                                ) : item.label.includes('Next') ? (
-                                    <PaginateLink active={item.active} key={i} href={item.url}>
-                                        <RightIcon/>
+                                ) : item.label.includes("Next") ? (
+                                    <PaginateLink
+                                        active={item.active}
+                                        key={i}
+                                        href={item.url}
+                                    >
+                                        <RightIcon />
                                     </PaginateLink>
                                 ) : (
-                                    <PaginateLink active={item.active} key={i} href={item.url}>
+                                    <PaginateLink
+                                        active={item.active}
+                                        key={i}
+                                        href={item.url}
+                                    >
                                         {item.label}
                                     </PaginateLink>
                                 )
                             ) : null;
                         })}
-                    </ul>{' '}
+                    </ul>{" "}
                 </>
             )}
         </div>
@@ -102,8 +113,8 @@ function PaginateLink({ active, href, children }) {
         <li>
             <Link
                 className={clsx(
-                    active && 'text-slate-700 border-slate-500 bg-slate-300',
-                    'w-11 bg-white h-9 text-sm font-semibold rounded shadow-sm border flex items-center justify-center'
+                    active && "text-slate-700 border-slate-500 bg-slate-300",
+                    "w-11 bg-white h-9 text-sm font-semibold rounded shadow-sm border flex items-center justify-center"
                 )}
                 href={href}
             >

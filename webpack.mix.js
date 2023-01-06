@@ -1,5 +1,5 @@
-const { react } = require('laravel-mix');
-const mix = require('laravel-mix');
+const { react } = require("laravel-mix");
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -12,9 +12,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    react()
-    .postCss('resources/css/app.css', 'public/css', [
-        require("tailwindcss"),
-    ]);
-mix.browserSync('127.0.0.1:8000');
+mix.js("resources/js/app.js", "public/js");
+react().postCss("resources/css/app.css", "public/css", [
+    require("tailwindcss"),
+]);
+mix.browserSync("127.0.0.1:8000");

@@ -1,10 +1,12 @@
-import React from 'react';
-import { Link } from '@inertiajs/inertia-react';
-import NavLink from '../Components/NavLink'
-import DropdownMenu from '../Components/DropdownMenu';
-import ResponsiveNavigation from '../Components/ResponsiveNavigation';
+import React from "react";
+import { Link, usePage } from "@inertiajs/inertia-react";
+import NavLink from "../Components/NavLink";
+import DropdownMenu from "../Components/DropdownMenu";
+import ResponsiveNavigation from "../Components/ResponsiveNavigation";
 
 export default function Navbar() {
+    const { auth } = usePage().props
+    console.log(auth.user ? 'true' : 'abg');
     return (
         <>
             <ResponsiveNavigation />
@@ -15,62 +17,71 @@ export default function Navbar() {
                             // href={route('home')}
                             className="mr-3 text-lg font-semibold capitalize text-white"
                         >
-                            Inertia
+                            Ikatan Pelajar Putri Nahdatul Ulama
                         </Link>
 
                         <div className="flex flex-1 items-center justify-between">
                             <div>
                                 <NavLink
-                                    // href={route('home')}
-                                    // active={route().current('home')}
+                                    href={route("beranda")}
+                                    active={route().current("beranda")}
                                 >
                                     Home
                                 </NavLink>
-                                <NavLink href={'#'}>Blog</NavLink>
-                                <NavLink href={'#'}>Tutorials</NavLink>
-                                <NavLink href={'#'}>Packages</NavLink>
+                                <NavLink
+                                    href={route("event-user")}
+                                    active={route().current("event-user")}
+                                >
+                                    Event
+                                </NavLink>
                             </div>
                             <div className="flex items-center">
+                                {auth.user ? (
                                 <div className="flex items-center">
-                                    <DropdownMenu label="Irsyad A. Panjaitan">
-                                        <DropdownMenu.Link
-                                            // href={route('dashboard')}
-                                        >
-                                            Dashboard
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link href={'#'}>
-                                            My profile
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link href={'#'}>
-                                            Settings
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link href={'#'}>
-                                            New article
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link href={'#'}>
-                                            My articles
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link href={'#'}>
-                                            New article
-                                        </DropdownMenu.Link>
-                                        <DropdownMenu.Link
-                                            // href={route('logout')}
-                                            method="POST"
-                                            as="button"
-                                        >
-                                            Logout
-                                        </DropdownMenu.Link>
-                                    </DropdownMenu>
-                                </div>
-                                <div className="flex items-center">
-                                    <NavLink >
-                                        Login
-                                    </NavLink>
-                                    <NavLink >
-                                        Register
-                                    </NavLink>
-                                </div>
+                                <DropdownMenu label={auth.user.name}>
+                                    <DropdownMenu.Link
+                                    // href={route('dashboard')}
+                                    >
+                                        Dashboard
+                                    </DropdownMenu.Link>
+                                    <DropdownMenu.Link
+                                        href={route("alumni")}
+                                    >
+                                        Data Alumni
+                                    </DropdownMenu.Link>
+                                    <DropdownMenu.Link
+                                        href={route("anggota")}
+                                    >
+                                        Data Anggota
+                                    </DropdownMenu.Link>
+                                    <DropdownMenu.Link
+                                        href={route("event")}
+                                    >
+                                        Data Event
+                                    </DropdownMenu.Link>
+                                    <DropdownMenu.Link
+                                        href={route('logout')}
+                                        method="POST"
+                                        as="button"
+                                    >
+                                        Logout
+                                    </DropdownMenu.Link>
+                                </DropdownMenu>
                             </div>
+                                ) : ''}
+                                {!auth.user ? (
+                                <div className="flex items-center">
+                                <NavLink
+                                    href={route("login")}
+                                    active={route().current("login")}
+                                >
+                                    Login
+                                </NavLink>
+                                <NavLink href={route("registrasi")}
+                                    active={route().current("registrasi")}>Register</NavLink>
+                            </div>
+                                ) : ''}
+                                </div>
                         </div>
                     </div>
                 </div>
