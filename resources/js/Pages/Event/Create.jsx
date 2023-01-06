@@ -38,7 +38,7 @@ export default function Create() {
             <p className="text-emerald-400">
                 Data Alumni Ikatan Pelajar Putri Nahdatul Ulama
             </p>
-            <div className="border border-emerald-400 py-4 px-4 grid grid-cols-2 gap-3 overflow-y-auto min-h-[80%] items-start rounded-lg">
+            <div className="border border-emerald-400 py-4 px-4 grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto min-h-[80%] items-start rounded-lg">
                 <div className="">
                     {errors && (
                         <p className="text-red-500 italic">{errors.kontent}</p>

@@ -51,7 +51,7 @@ export default function Update({ onClose, model }) {
             <div
                 className={clsx(
                     loading ? "fixed" : "hidden",
-                    " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
+                    " left-0 top-0 bg-slate-500/30 backdrop-blur-sm text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  h-full flex items-center justify-center"
                 )}
             >
                 <img src={"images/Infinity-0.8s-200px.gif"} alt="" />
@@ -61,7 +61,7 @@ export default function Update({ onClose, model }) {
                     <div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Nama Lengkap
                                 </label>
                                 <input
@@ -69,7 +69,7 @@ export default function Update({ onClose, model }) {
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="nama_lengkap"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Nama Lengkap"
                                 />
@@ -82,14 +82,14 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Jenis Kelamin
                                 </label>
                                 <select
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="jenis_kelamin"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                 >
                                     <option
                                         defaultValue={data.jenis_kelamin}
@@ -110,7 +110,7 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Alamat
                                 </label>
                                 <textarea
@@ -118,7 +118,7 @@ export default function Update({ onClose, model }) {
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="alamat"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Alamat"
                                 />
@@ -131,7 +131,7 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Tempat Lahir
                                 </label>
                                 <input
@@ -139,7 +139,7 @@ export default function Update({ onClose, model }) {
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="tempat_lahir"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Tempat Lahir"
                                 />
@@ -152,7 +152,7 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Tanggal Lahir
                                 </label>
                                 <input
@@ -160,7 +160,7 @@ export default function Update({ onClose, model }) {
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="tanggal_lahir"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Tanggal Lahir (31-12-2022)"
                                 />
@@ -173,7 +173,7 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Telephone
                                 </label>
                                 <input
@@ -181,7 +181,7 @@ export default function Update({ onClose, model }) {
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="telp"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Telp"
                                 />
@@ -194,14 +194,14 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Angkatan
                                 </label>
                                 <select
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="angkatan"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full  rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                 >
                                     <option
                                         defaultValue={data.angkatan}
@@ -225,7 +225,7 @@ export default function Update({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Thumbnail
                                 </label>
                                 <input
@@ -251,7 +251,7 @@ export default function Update({ onClose, model }) {
                             )}
                         </div>
                     </div>
-                    <div className=" p-3 border border-emerald-400 rounded-lg">
+                    <div className="hidden md:block p-3 border border-emerald-400 rounded-lg">
                         <img src={data.thumbnail} className="" alt="" />
                         <p className="text-center text-emerald-400 my-3">
                             Images
