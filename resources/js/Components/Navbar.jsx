@@ -6,7 +6,6 @@ import ResponsiveNavigation from "../Components/ResponsiveNavigation";
 
 export default function Navbar() {
     const { auth } = usePage().props
-    console.log(auth.user ? 'true' : 'abg');
     return (
         <>
             <ResponsiveNavigation />

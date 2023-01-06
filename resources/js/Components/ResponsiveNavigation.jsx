@@ -3,7 +3,8 @@ import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
 export default function ResponsiveNavigation() {
-    const {auth} = usePage().props
+    const { auth } = usePage().props
+    console.log(auth.user);
     return (
         <nav className="border-b border-gray-800 bg-black px-4 py-4 lg:hidden">
             <div className="flex items-center justify-between">
@@ -51,7 +52,7 @@ export default function ResponsiveNavigation() {
                             Login
                                 </DropdownMenu.Link>
                                 <DropdownMenu.Link
-                        href={route('register')}
+                        href={route('registrasi')}
                     >
                         Register
                             </DropdownMenu.Link>
