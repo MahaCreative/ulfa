@@ -46,14 +46,14 @@ export default function Create({ onClose, model }) {
                     <div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
                                     Nama Lengkap
                                 </label>
                                 <input
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="nama_lengkap"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Nama Lengkap"
                                 />
@@ -66,14 +66,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Jenis Kelamin
                                 </label>
                                 <select
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="jenis_kelamin"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                 >
                                     <option defaultValue={""} selected disabled>
                                         Pilih Jenis Celamin{" "}
@@ -90,14 +90,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Alamat
                                 </label>
                                 <textarea
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="alamat"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Alamat"
                                 />
@@ -110,14 +110,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Tempat Lahir
                                 </label>
                                 <input
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="tempat_lahir"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Tempat Lahir"
                                 />
@@ -130,14 +130,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Tanggal Lahir
                                 </label>
                                 <input
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="tanggal_lahir"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Tanggal Lahir (31-12-2022)"
                                 />
@@ -150,14 +150,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Telephone
                                 </label>
                                 <input
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="telp"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                     type={"text"}
                                     placeholder="Telp"
                                 />
@@ -170,14 +170,14 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Angkatan
                                 </label>
                                 <select
                                     ref={inputRef}
                                     onChange={changeHandler}
                                     name="angkatan"
-                                    className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                 >
                                     <option selected disabled>
                                         Pilih Angkatan{" "}
@@ -197,7 +197,7 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="w-[14vw]">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
                                     Thumbnail
                                 </label>
                                 <input
@@ -223,7 +223,7 @@ export default function Create({ onClose, model }) {
                             )}
                         </div>
                     </div>
-                    <div className=" p-3 border border-emerald-400 rounded-lg">
+                    <div className="hidden md:block p-3 border border-emerald-400 rounded-lg">
                         <img src={"images/lpp.png"} className="" alt="" />
                         <p className="text-center text-emerald-400 my-3">
                             Image
