@@ -1,8 +1,9 @@
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
 export default function ResponsiveNavigation() {
+    const {auth} = usePage().props
     return (
         <nav className="border-b border-gray-800 bg-black px-4 py-4 lg:hidden">
             <div className="flex items-center justify-between">
@@ -34,13 +35,28 @@ export default function ResponsiveNavigation() {
                     <DropdownMenu.Link href={route("event-user")}>
                         Event
                     </DropdownMenu.Link>
-                    <DropdownMenu.Link
+                    {auth.user ? (
+                        <DropdownMenu.Link
                         // href={route('logout')}
                         method="POST"
                         as="button"
                     >
                         Logout
                     </DropdownMenu.Link>
+                    ) : (
+                        <div>
+                            <DropdownMenu.Link
+                            href={route('login')}
+                                                >
+                            Login
+                                </DropdownMenu.Link>
+                                <DropdownMenu.Link
+                        href={route('register')}
+                    >
+                        Register
+                            </DropdownMenu.Link>
+                        </div>
+                    )}
                 </DropdownMenu>
             </div>
         </nav>
