@@ -15,11 +15,12 @@ export default function Update({ onClose, model }) {
         telp: "",
         angkatan: "",
         thumbnail: model ? model.thumbnail : "",
+        tempat_bekerja: ''
     });
     const [loading, setLoading] = useState(false);
     const submitHandler = (e) => {
         e.preventDefault();
-        put(route("anggota-update"), {
+        put(route("alumni-update"), {
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {
@@ -44,6 +45,7 @@ export default function Update({ onClose, model }) {
             telp: model.telp,
             angkatan: model.angkatan_id,
             thumbnail: model.thumbnail,
+            tempat_bekerja:model.tempat_bekerja
         });
     }, [model]);
     return (
@@ -222,6 +224,22 @@ export default function Update({ onClose, model }) {
                                     {errors.angkatan}
                                 </p>
                             )}
+                        </div>
+                        <div className="my-1.5">
+                            <div className="flex gap-3 items-center">
+                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                    Tempat Bekerja
+                                </label>
+                                <input
+                                    ref={inputRef}
+                                    onChange={changeHandler}
+                                    name="tempat_bekerja"
+                                    className="text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
+                                    type={"text"}
+                                    placeholder="Tempat Bekerja"
+                                />
+                            </div>
+
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">

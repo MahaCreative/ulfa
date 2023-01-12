@@ -29,7 +29,7 @@ class AlumniController extends Controller
     }
     public function store(Request $request)
     {
-
+        // dd($request->all());
         $attr = $request->validate([
             'nama_lengkap' => 'required|min:6',
             'jenis_kelamin' => 'required',
@@ -50,6 +50,7 @@ class AlumniController extends Controller
             'tanggal_lahir' => Carbon::create($request->tanggal_lahir),
             'telp' => $request->telp,
             'angkatan_id' => $request->angkatan,
+            'tempat_bekerja' => $request->tempat_bekerja,
             'status_anggota' => 'alumni',
             'thumbnail' => $url
         ]);
@@ -82,6 +83,7 @@ class AlumniController extends Controller
             'telp' => $request->telp,
             'angkatan_id' => $request->angkatan,
             'status_anggota' => 'alumni',
+            'tempat_bekerja' => $request->tempat_bekerja,
             'thumbnail' => $url
         ]);
         return redirect()->back();

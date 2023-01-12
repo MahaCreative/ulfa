@@ -65,7 +65,7 @@ export default function Alumni(props) {
         deleteModalOpen();
     };
     function submitDelete() {
-        Inertia.delete(route("anggota-delete", model), {
+        Inertia.delete(route("alumni-delete", model), {
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {
@@ -161,6 +161,7 @@ export default function Alumni(props) {
                                 <Table.Th className="text-sm md:text-md lg:text-lg">Nama</Table.Th>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">Telp</Table.Th>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">Angktan</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">Tempat Bekerja</Table.Th>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">Aksi</Table.Th>
                             </tr>
                         </Table.Thead>
@@ -172,6 +173,7 @@ export default function Alumni(props) {
                                         <Table.Td className="text-sm md:text-md lg:text-lg">{item.nama_lengkap}</Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">{item.telp}</Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">{item.angkatan}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.tempat_bekerja}</Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             <Table.Dropdown className="text-sm md:text-md lg:text-lg">
                                                 <Menu>

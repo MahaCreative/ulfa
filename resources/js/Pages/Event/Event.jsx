@@ -66,7 +66,7 @@ export default function Event(props) {
         deleteModalOpen();
     };
     function submitDelete() {
-        Inertia.delete(route("anggota-delete", model), {
+        Inertia.delete(route("event-delete", model.slug), {
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {
@@ -173,7 +173,7 @@ export default function Event(props) {
                                                 <img
                                                     className="w-20"
                                                     src={
-                                                        "storage/" +
+                                                        "/storage/" +
                                                         item.thumbnail
                                                     }
                                                     alt=""

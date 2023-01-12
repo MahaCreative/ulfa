@@ -36,7 +36,7 @@ class EventController extends Controller
             'kontent' => 'required',
         ]);
         $attr['slug'] = \Str::slug($attr['judul']);
-        $attr['thumbnail'] = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/profile', $request->file('thumbnail')->getClientOriginalName()) : null;
+        $attr['thumbnail'] = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/event', $request->file('thumbnail')->getClientOriginalName()) : null;
         $event = Event::create($attr);
     }
     public function update($slug)
@@ -59,7 +59,7 @@ class EventController extends Controller
         $attr = [];
         $judul = $request->data['judul'];
         $attr['slug'] = \Str::slug($judul);
-        $attr['thumbnail'] = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/profile', $request->file('thumbnail')->getClientOriginalName()) : null;
+        $attr['thumbnail'] = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/event', $request->file('thumbnail')->getClientOriginalName()) : null;
         $update = Event::findOrFail($request->data['id']);
 
         $update->update([
@@ -71,5 +71,10 @@ class EventController extends Controller
             'slug' => $attr['slug'],
             'kontent' => $request->data['kontent'],
         ]);
+    }
+    public function delete($slug)
+    {
+        $event = Event::where('slug', $slug)->first();
+        $event->delete();
     }
 }

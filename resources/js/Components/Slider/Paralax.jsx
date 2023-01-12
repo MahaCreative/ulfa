@@ -35,7 +35,7 @@ export default function Paralax(props) {
                           <SwiperSlide className="relative w-full">
                               <div className="relative w-full">
                                   <img
-                                      src={"storage/" + item.thumbnail}
+                                      src={"/storage/" + item.thumbnail}
                                       alt=""
                                   />
                               </div>

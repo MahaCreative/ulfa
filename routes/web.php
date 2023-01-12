@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerificationRequestController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventUserController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingProfilController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +48,10 @@ Route::middleware('guest')->group(function () {
 });
 
 
-
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+
+
 
     Route::get('setting', [SettingProfilController::class, 'index'])->name('setting');
     Route::get('data-anggota', [AnggotaController::class, 'index'])->name('anggota');
@@ -57,11 +61,17 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
 
     Route::get('data-alumni', [AlumniController::class, 'index'])->name('alumni');
+    Route::post('data-alumni', [AlumniController::class, 'store']);
+    Route::put('data-alumni-update', [AlumniController::class, 'update'])->name('alumni-update');
+    Route::delete('data-alumni-delete', [AlumniController::class, 'delete'])->name('alumni-delete');
+
+
     Route::get('data-event', [EventController::class, 'index'])->name('event');
     Route::get('data-event-create', [EventController::class, 'create'])->name('event-create');
     Route::post('data-event-create', [EventController::class, 'store']);
     Route::get('data-event-update/{slug}', [EventController::class, 'update'])->name('event-update');
     Route::patch('data-event-update', [EventController::class, 'store_update'])->name('event-update-patch');
+    Route::delete('data-event-delete/{slug}', [EventController::class, 'delete'])->name('event-delete');
 });
 
 
