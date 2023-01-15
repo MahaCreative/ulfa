@@ -62,7 +62,7 @@ function Link({ isActive = false, children, ...props }) {
                             active || isActive
                                 ? "bg-blue-700 text-white"
                                 : "text-gray-400",
-                            "inline-block rounded-lg px-2 py-1 text-left text-sm font-medium"
+                            "inline-block rounded-lg px-2 py-1 text-left text-sm font-medium z-[99999]"
                         )}
                     >
                         {children}

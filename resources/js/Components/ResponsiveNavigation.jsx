@@ -6,7 +6,7 @@ export default function ResponsiveNavigation() {
     const { auth } = usePage().props
     console.log(auth.user);
     return (
-        <nav className="border-b border-emerald-500 bg-emerald-500 px-4 py-4 lg:hidden">
+        <nav className="border-b border-emerald-500 bg-emerald-500 px-4 py-4 lg:hidden z-[99999]">
             <div className="flex items-center justify-between">
                 <Link className="text-xl font-semibold text-white" href="/">
                     {/* {import.meta.env.VITE_APP_NAME} */}

@@ -39,7 +39,7 @@ export default function Navbar() {
                                 <div className="flex items-center">
                                 <DropdownMenu label={auth.user.name}>
                                     <DropdownMenu.Link
-                                    // href={route('dashboard')}
+                                    href={route('dashboard')}
                                     >
                                         Dashboard
                                     </DropdownMenu.Link>

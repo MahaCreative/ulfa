@@ -22,6 +22,7 @@ class RegisterController extends Controller
         ]);
         $attr['password'] = bcrypt($attr['password']);
         $user = User::create($attr);
+        $user->assignRole('user');
         if ($user) {
             // $user->assignRole('admin');
 

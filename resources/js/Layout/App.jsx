@@ -1,3 +1,4 @@
+import { Menu } from "@headlessui/react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
 import React, { useState } from "react";
@@ -5,92 +6,67 @@ import DropdownMenu from "../Components/DropdownMenu";
 import Navbar from "../Components/Navbar";
 
 export default function App({ profile, children }) {
-    const [showSidebar, setShowSidebar] = useState(false);
+    const [active, setActive] = useState(false);
     const {auth} = usePage().props
     const menuHandler = () => {
         setActive(!active);
-        console.log(active);
     };
     return (
-        <div className="overflow-x-hidden">
-            <div className="flex">
-                <div
-                    className={clsx(
-                        showSidebar ? "translate-x-0 " : "-translate-x-[800px]",
-                        "top-0 left-0 w-[20vw] bg-emerald-500 text-white fixed h-full duration-300 ease-in-out transition z-[9999]"
-                    )}
-                >
-                    <div className="flex gap-3 items-center bg-emerald-600 p-4">
-                        <img src={"/images/lpp.png"} className="w-14" alt="" />
-                        <h1 className="text-xl capitalize font-bold md:flex hidden">
-                            {" "}
-                            {profile
-                                ? profile.nama
-                                : "ikatan pelajar putri nahdatul ulama"}
-                        </h1>
+        <div className="flex">
+            <div className=" min-h-[100vh] bg-emerald-400 w-[15vw] shadow-sm shadow-gray-600/50 hidden md:inline-block">
+                <div>
+                    <div className="mt-8 mb-2 w-full flex items-center justify-center">
+                        <img src="/images/lpp.png" className="w-[50%]" alt="" />
                     </div>
                     <div>
-                        <Link
-                            className="block bg-emerald-300 my-3 py-3 pl-2 hover:cursor-pointer border-y border-white/50 hover:bg-opacity-50"
-                            href={route("beranda")}
-                        >
-                            Beranda
-                        </Link>
-                        <Link
-                            className="block bg-emerald-300 my-3 py-3 pl-2 hover:cursor-pointer border-y border-white/50 hover:bg-opacity-50"
-                            href={route("dashboard")}
-                        >
-                            Dashboard
-                        </Link>
-                        <Link
-                            className="block bg-emerald-300 my-3 py-3 pl-2 hover:cursor-pointer border-y border-white/50 hover:bg-opacity-50"
-                            href={route("anggota")}
-                        >
-                            Data Anggota
-                        </Link>
-                        <Link
-                            className="block bg-emerald-300 my-3 py-3 pl-2 hover:cursor-pointer border-y border-white/50 hover:bg-opacity-50"
-                            href={route("alumni")}
-                        >
-                            Data Alumni
-                        </Link>
-                        <Link
-                            className="block bg-emerald-300 my-3 py-3 pl-2 hover:cursor-pointer border-y border-white/50 hover:bg-opacity-50"
-                            href={route("event")}
-                        >
-                            Event
-                        </Link>
+                        <h3 className="font-fira  w-full flex items-center justify-center font-bold text-4xl text-white"> LPPNU</h3>
                     </div>
                 </div>
-                <div
-                    className={clsx(
-                        showSidebar ? "translate-x-[20vw]" : "translate-x-0",
-                        "relative z-[9999] flex justify-between items-center left-0 ease-linear duration-300 transition bg-emerald-400 w-full px-4 py-3"
-                    )}
-                >
-                    <button
-                        className="border border-gray-300/40 shadow-sm shadow-gray-400/50 text-white rounded-md"
-                        onClick={() => setShowSidebar(!showSidebar)}
-                    >
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-                        </svg>
 
-                    </button>
-                    <div className="relative">
-                     <DropdownMenu className={'text-white relative  '} toggleAnimate={false}
-                    label={auth.user.name }>
-                    <DropdownMenu.Link href={route("beranda")}>
-                    Setting Profile
-                    </DropdownMenu.Link>
-                        </DropdownMenu>
-                    </div>
+                <div className="w-full px-4">
+                    <Link className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('dashboard')}>
+                        Dashboard
+                    </Link>
+                    <Link className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('alumni')}>
+                        Alumni
+                    </Link>
+                    <Link className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('anggota')}>
+                        Anggota
+                    </Link>
+                    <Link className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('event')}>
+                        Event
+                    </Link>
+                    <Link className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('setting')}>
+                        Setting Profil
+                    </Link>
                 </div>
             </div>
-            <div  className={clsx(
-                        showSidebar ? "translate-x-[20vw]" : "translate-x-0",
-                        "relative flex justify-between items-center left-0 ease-linear duration-300 transition w-full"
-                    )}>{children}</div>
+            <div className="w-full">
+                <div className="py-1.5 px-4 bg-emerald-400 flex md:justify-start justify-end h-12 relative">
+                    <button onClick={menuHandler} className="py-1 px-2 border rounded-md text-white md:hidden inline-block hover:bg-emerald-500 shadow-sm shadow-gray-400">MENU</button>
+                    <Menu className={clsx(active ? 'inline-block translate-y-0 opacity-100' :"-translate-y-96 opacity-0",
+                        'shadow-sm shadow-gray-400/50 rounded-md border border-separate absolute top-[50px] w-[50%] duration-300 transition md:hidden right-5 bg-emerald-400/20  backdrop-blur-sm')}>
+                        <div className="">
+                            <Link className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('dashboard')}>
+                                Dashboard
+                            </Link>
+                            <Link className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('alumni')}>
+                                Alumni
+                            </Link>
+                            <Link className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('anggota')}>
+                                Anggota
+                            </Link>
+                            <Link className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('event')}>
+                                Event
+                            </Link>
+                            <Link className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition" href={route('setting')}>
+                                Setting Profil
+                            </Link>
+                        </div>
+                    </Menu>
+                </div>
+                <div className="w-full">{children}</div>
+            </div>
         </div>
     );
 }

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         ProfileAkun::factory(10)->create();
-        $rolesss = ['anggota', 'alumni'];
+        $rolesss = ['user'];
         $user = User::all();
 
         return $this->call([
