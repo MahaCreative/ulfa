@@ -22,7 +22,7 @@ export default function Login({ profil }) {
             <div>
                 <Navbar />
             </div>
-            <div className="w-full min-h-screen flex justify-between px-16 gap-3 items-center">
+            <div className="w-full min-h-screen flex justify-between px-4 md:px-8 lg:px-16 gap-3 items-center">
                 <div className="w-1/2 pl-16">
                     <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
                         SELAMAT DATANG
@@ -37,17 +37,19 @@ export default function Login({ profil }) {
                     </h1>
                 </div>
                 <div className="w-1/2 py-2.5 px-5 bg-white rounded-md shadow-sm shadow-gray-400/30">
-                    <p>Silahkan Melakukan Registrasi Melalui Email Yang Telah Dikirim...</p>
+                    <p>
+                        Silahkan Melakukan Registrasi Melalui Email Yang Telah
+                        Dikirim...
+                    </p>
                     <div className="flex gap-3 mt-1">
-                            <Link
-                                href={route('resend')}
-                                className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
-                            >
-                                Resend Email
-                    </Link>
+                        <Link
+                            href={route("resend")}
+                            className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
+                        >
+                            Resend Email
+                        </Link>
                     </div>
                 </div>
-                
             </div>
         </div>
     );

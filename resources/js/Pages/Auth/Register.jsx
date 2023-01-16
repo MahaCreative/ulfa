@@ -23,8 +23,8 @@ export default function Login({ profil }) {
             <div>
                 <Navbar />
             </div>
-            <div className="w-full min-h-screen flex flex-col md:flex-row justify-between px-16 gap-3 items-center">
-                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16">
+            <div className="w-full min-h-screen flex flex-col md:flex-row justify-between px-4 md:px-8 lg:px-16 gap-3 items-center">
+                <div className="w-[95%] md:w-[75] lg:w-1/2 lg:pl-16">
                     <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
                         SELAMAT DATANG
                     </h4>
@@ -37,7 +37,7 @@ export default function Login({ profil }) {
                             : "ikatan pelajar putri nahdatul ulama"}
                     </h1>
                 </div>
-                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16 px-4 py-1.5 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
+                <div className="w-[95%] md:w-[70%] lg:w-1/2 lg:pl-16 px-4 py-1.5 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
                     <form
                         onSubmit={submitHandler}
                         encType={"multipart/form-data"}

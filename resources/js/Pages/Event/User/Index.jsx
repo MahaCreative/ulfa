@@ -24,7 +24,7 @@ export default function Index(props) {
                         <Paralax model={eventBerlangsung}></Paralax>
                     </div>
                     <div className="flex flex-col md:flex-row gap-3 py-4 px-6 items-start font-fira">
-                        <div className="w-[80%]">
+                        <div className="lg:w-[80%] w-[100%]">
                             <h3 className="border-b-4 border-emerald-400 text-4xl inline-block my-4 font-fira font-semibold">
                                 Event Terbaru
                             </h3>
@@ -34,7 +34,7 @@ export default function Index(props) {
                                         event.length > 3
                                             ? "xl:grid-cols-4"
                                             : "",
-                                        "grid grid:cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+                                        "grid grid:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
                                     )}
                                 >
                                     {event

@@ -20,7 +20,7 @@ export default function Show(props) {
                         <Paralax model={eventBerlangsung}></Paralax>
                     </div>
                     <div className="flex flex-col md:flex-row gap-3 py-4 px-6 items-start font-fira">
-                        <div className="w-[80%] shadow-sm shadow-gray-300/40 py-3 px-4">
+                        <div className="w-[100%] lg:w-[80%] shadow-sm shadow-gray-300/40 py-3 px-4">
                             <h3 className="border-b-4 border-emerald-400 text-2xl inline-block my-4 font-fira font-semibold">
                                 {event.judul}
                             </h3>
