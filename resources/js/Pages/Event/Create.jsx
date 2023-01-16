@@ -3,6 +3,7 @@ import App from "../../Layout/App";
 import clsx from "clsx";
 import { useForm } from "@inertiajs/inertia-react";
 import CKEDITOR from "../../Components/Editor/CKEDITOR";
+import Progress from "../../Components/Progress";
 
 export default function Create() {
     const input = useRef();
@@ -33,7 +34,7 @@ export default function Create() {
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
                 )}
             >
-                <p className="text-white">a</p>
+                <Progress />
             </div>
             <p className="text-emerald-400">
                 Data Alumni Ikatan Pelajar Putri Nahdatul Ulama

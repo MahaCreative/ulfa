@@ -1,6 +1,7 @@
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
+import Progress from "../../Components/Progress";
 
 export default function Create({ onClose, model }) {
     const { angkatan } = usePage().props;
@@ -15,7 +16,7 @@ export default function Create({ onClose, model }) {
         telp: "",
         angkatan: "",
         thumbnail: "",
-        tempat_bekerja:'',
+        tempat_bekerja: "",
     });
     const [loading, setLoading] = useState(false);
     const submitHandler = (e) => {
@@ -40,14 +41,17 @@ export default function Create({ onClose, model }) {
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
                 )}
             >
-                <p className="text-white">a</p>
+                <Progress />
             </div>
             <form onSubmit={submitHandler} encType={"multipart/form-data"}>
                 <div className="flex gap-3 items-center">
                     <div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Nama Lengkap
                                 </label>
                                 <input
@@ -67,7 +71,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Jenis Kelamin
                                 </label>
                                 <select
@@ -91,7 +98,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Alamat
                                 </label>
                                 <textarea
@@ -111,7 +121,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Tempat Lahir
                                 </label>
                                 <input
@@ -131,7 +144,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Tanggal Lahir
                                 </label>
                                 <input
@@ -151,7 +167,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Telephone
                                 </label>
                                 <input
@@ -171,7 +190,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Angkatan
                                 </label>
                                 <select
@@ -198,7 +220,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Tempat Bekerja
                                 </label>
                                 <input
@@ -218,7 +243,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[14vw]"
+                                >
                                     Thumbnail
                                 </label>
                                 <input

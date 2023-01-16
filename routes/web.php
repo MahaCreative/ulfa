@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\AngkatanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerificationRequestController;
@@ -36,6 +37,7 @@ Route::post('reset-password-store', [ForgotPasswordController::class, 'reset_pas
 
 Route::get('event', [EventUserController::class, 'index'])->name('event-user');
 Route::get('event-show/{slug}', [EventUserController::class, 'show'])->name('event-show');
+Route::get('event-search', [EventUserController::class, 'search'])->name('event-search');
 Route::get('', BerandaController::class)->name('beranda');
 
 
@@ -48,12 +50,20 @@ Route::middleware('guest')->group(function () {
 });
 
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-
+    Route::get('angkatan', [AngkatanController::class, 'index'])->name('angkatan');
+    Route::post('angkatan', [AngkatanController::class, 'store']);
+    Route::put('angkatan-update', [AngkatanController::class, 'update'])->name('angkatan-update');
+    Route::delete('angkatan-delete', [AngkatanController::class, 'delete'])->name('angkatan-delete');
 
     Route::get('setting', [SettingProfilController::class, 'index'])->name('setting');
+    Route::put('setting-update-akun', [SettingProfilController::class, 'update_akun'])->name('update-akun');
+    Route::post('setting-post-profile', [SettingProfilController::class, 'post_profile'])->name('post-profile');
+    Route::put('setting-update-profile', [SettingProfilController::class, 'update_profile'])->name('update-profile');
+
+
     Route::get('data-anggota', [AnggotaController::class, 'index'])->name('anggota');
     Route::post('data-anggota', [AnggotaController::class, 'store']);
     Route::put('data-anggota-update', [AnggotaController::class, 'update'])->name('anggota-update');
@@ -77,4 +87,16 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
 Route::post('logout', function () {
     auth()->logout();
+    return redirect()->route('beranda')->with([
+        'type' => 'success',
+        'message' => 'Logout Successfully'
+     ]);
+})->name('logout');
+
+Route::get('logout', function () {
+     auth()->logout();
+     return redirect()->route('beranda')->with([
+        'type' => 'success',
+        'message' => 'Logout Successfully'
+     ]);
 })->name('logout');

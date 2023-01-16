@@ -24,6 +24,7 @@ class AlumniController extends Controller
                 ->where('profile_akuns.status_anggota', 'alumni')
                 ->fastPaginate();
         }
+        
 
         return inertia('Alumni/Alumni', ['alumni' => ProfileAkunResource::collection($alumni)]);
     }
@@ -55,7 +56,10 @@ class AlumniController extends Controller
             'thumbnail' => $url
         ]);
         // sleep(10);
-        return redirect()->back();
+            return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menambah data'
+            ]);
     }
     public function update(Request $request)
     {
@@ -86,13 +90,19 @@ class AlumniController extends Controller
             'tempat_bekerja' => $request->tempat_bekerja,
             'thumbnail' => $url
         ]);
-        return redirect()->back();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil mengedit data'
+            ]);
     }
     public function delete(Request $request)
     {
         // dd($request->all());
         $profile = ProfileAkun::findOrFail($request->id);
         $profile->delete();
-        return redirect()->back();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menghapus data'
+            ]);
     }
 }

@@ -38,12 +38,17 @@ class EventController extends Controller
         $attr['slug'] = \Str::slug($attr['judul']);
         $attr['thumbnail'] = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/event', $request->file('thumbnail')->getClientOriginalName()) : null;
         $event = Event::create($attr);
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menambah data'
+            ]);
     }
     public function update($slug)
     {
         $event = Event::where('slug', $slug)->first();
 
         return inertia('Event/Update', ['event' => $event]);
+        
     }
     public function store_update(Request $request)
     {
@@ -71,10 +76,18 @@ class EventController extends Controller
             'slug' => $attr['slug'],
             'kontent' => $request->data['kontent'],
         ]);
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil mengedit data'
+            ]);
     }
     public function delete($slug)
     {
         $event = Event::where('slug', $slug)->first();
         $event->delete();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menghapus data'
+            ]);
     }
 }

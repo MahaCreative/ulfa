@@ -11,6 +11,8 @@ import { Inertia } from "@inertiajs/inertia";
 import Create from "./Create";
 import clsx from "clsx";
 import { Link } from "@inertiajs/inertia-react";
+import Progress from "../../Components/Progress";
+import Date from "../../Components/Date";
 export default function Event(props) {
     const { data: event, meta, links } = props.event;
 
@@ -83,7 +85,7 @@ export default function Event(props) {
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
                 )}
             >
-                <p className="text-white">a</p>
+                <Progress />
             </div>
             <div>
                 <Modal
@@ -128,7 +130,9 @@ export default function Event(props) {
                 </Modal>
             </div>
 
-            <div></div>
+            <div>
+                <Date />
+            </div>
             <p className="text-emerald-400">
                 Data Anggota Ikatan Pelajar Putri Nahdatul Ulama
             </p>
@@ -155,19 +159,33 @@ export default function Event(props) {
                     <Table>
                         <Table.Thead>
                             <tr>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">No</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Judul Event</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Tanggal Mulai</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Tanggal Berakhir</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Penyelenggara</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Aksi</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    No
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Judul Event
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Tanggal Mulai
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Tanggal Berakhir
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Penyelenggara
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Aksi
+                                </Table.Th>
                             </tr>
                         </Table.Thead>
                         <Table.Tbody>
                             {event ? (
                                 event.map((item, key) => (
                                     <tr key={key + 1}>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{key + 1}</Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            {key + 1}
+                                        </Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             <div className="flex gap-3 items-center">
                                                 <img
@@ -183,7 +201,7 @@ export default function Event(props) {
                                         </Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {item.tanggal_mulai}
-                                        </Table.Td >
+                                        </Table.Td>
                                         <Table.Td>
                                             {item.tanggal_berakhir}
                                         </Table.Td>

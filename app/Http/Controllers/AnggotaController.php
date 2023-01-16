@@ -54,7 +54,10 @@ class AnggotaController extends Controller
             'thumbnail' => $url
         ]);
         // sleep(10);
-        return redirect()->back();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menambah data'
+            ]);
     }
     public function update(Request $request)
     {
@@ -84,13 +87,19 @@ class AnggotaController extends Controller
             'status_anggota' => 'Anggota',
             'thumbnail' => $url
         ]);
-        return redirect()->back();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil mengedit data'
+            ]);
     }
     public function delete(Request $request)
     {
         // dd($request->all());
         $profile = ProfileAkun::findOrFail($request->id);
         $profile->delete();
-        return redirect()->back();
+                return redirect()->back()->with([
+                'type' => 'success',
+                'message' => 'Berhasil menghapus data'
+            ]);
     }
 }

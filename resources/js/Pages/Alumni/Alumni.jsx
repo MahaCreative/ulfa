@@ -10,9 +10,12 @@ import Create from "./Create";
 import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
 import App from "../../Layout/App";
+import { usePage } from "@inertiajs/inertia-react";
+import Progress from "../../Components/Progress";
+import Date from "../../Components/Date";
 export default function Alumni(props) {
     const { data: alumni, meta, links } = props.alumni;
-
+    const { auth } = usePage().props;
     const [loading, setLoading] = useState(false);
     const [params, setParams] = useState({ search: "" });
     const [model, setModel] = useState([]);
@@ -82,14 +85,14 @@ export default function Alumni(props) {
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
                 )}
             >
-                <p className="text-white">a</p>
+                <Progress />
             </div>
             <div>
                 <Modal
                     size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={addTrigger}
                     closeModal={addModalClose}
-                    headerTitle={"Tambah Anggota"}
+                    headerTitle={"Tambah Angkatan"}
                 >
                     <Create onClose={addModalClose} model={model} />
                 </Modal>
@@ -97,7 +100,7 @@ export default function Alumni(props) {
                     size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={editTrigger}
                     closeModal={editModalClose}
-                    headerTitle={"Edit Anggota"}
+                    headerTitle={"Edit Alumni"}
                 >
                     <Update onClose={editModalClose} model={model} />
                 </Modal>
@@ -105,7 +108,7 @@ export default function Alumni(props) {
                     size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={deleteTrigger}
                     closeModal={deleteModalClose}
-                    headerTitle={"delete Anggota"}
+                    headerTitle={"delete Alumni"}
                 >
                     <p>Apakah Anda Yakin Akan Menghapus Data Ini ???</p>
                     <div className="flex gap-3 my-4">
@@ -127,22 +130,28 @@ export default function Alumni(props) {
                 </Modal>
             </div>
 
-            <div></div>
+            <div>
+                <Date />
+            </div>
             <p className="text-emerald-400">
                 Data Alumni Ikatan Pelajar Putri Nahdatul Ulama
             </p>
             <div className="px-4 border border-emerald-300 rounded-lg py-2.5">
                 <div className="flex justify-between items-center py-2.5">
                     <div className="flex gap-3">
-                        <button
-                            onClick={addModalHandler}
-                            className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
-                        >
-                            Tambah Alumni
-                        </button>
-                        <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
-                            Cetak Alumni
-                        </button>
+                        {auth.role[0] === "admin" && (
+                            <>
+                                <button
+                                    onClick={addModalHandler}
+                                    className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
+                                >
+                                    Tambah Alumni
+                                </button>
+                                <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
+                                    Cetak Alumni
+                                </button>
+                            </>
+                        )}
                         <input
                             onChange={(e) =>
                                 setParams({ ...params, search: e.target.value })
@@ -157,52 +166,80 @@ export default function Alumni(props) {
                     <Table>
                         <Table.Thead>
                             <tr>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">No</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Nama</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Telp</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Angktan</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Tempat Bekerja</Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">Aksi</Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    No
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Nama
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Telp
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Angktan
+                                </Table.Th>
+                                <Table.Th className="text-sm md:text-md lg:text-lg">
+                                    Tempat Bekerja
+                                </Table.Th>
+                                {auth.role[0] === "admin" && (
+                                    <Table.Th className="text-sm md:text-md lg:text-lg">
+                                        Aksi
+                                    </Table.Th>
+                                )}
                             </tr>
                         </Table.Thead>
                         <Table.Tbody>
                             {alumni ? (
                                 alumni.map((item, key) => (
                                     <tr key={key + 1}>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{key + 1}</Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.nama_lengkap}</Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.telp}</Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.angkatan}</Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">{item.tempat_bekerja}</Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
-                                            <Table.Dropdown className="text-sm md:text-md lg:text-lg">
-                                                <Menu>
-                                                    <Table.DropdownButton>
-                                                        <Table.DropdownButton>
-                                                            Lihat
-                                                        </Table.DropdownButton>
-                                                        <Table.DropdownButton
-                                                            onClick={() =>
-                                                                editModalHandler(
-                                                                    item
-                                                                )
-                                                            }
-                                                        >
-                                                            Edit
-                                                        </Table.DropdownButton>
-                                                        <Table.DropdownButton
-                                                            onClick={() =>
-                                                                deleteModalHandler(
-                                                                    item
-                                                                )
-                                                            }
-                                                        >
-                                                            Delete
-                                                        </Table.DropdownButton>
-                                                    </Table.DropdownButton>
-                                                </Menu>
-                                            </Table.Dropdown>
+                                            {key + 1}
                                         </Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            {item.nama_lengkap}
+                                        </Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            {item.telp}
+                                        </Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            {item.angkatan}
+                                        </Table.Td>
+                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                            {item.tempat_bekerja}
+                                        </Table.Td>
+                                        {auth.role[0] === "admin" && (
+                                            <>
+                                                <Table.Td className="text-sm md:text-md lg:text-lg">
+                                                    <Table.Dropdown className="text-sm md:text-md lg:text-lg">
+                                                        <Menu>
+                                                            <Table.DropdownButton>
+                                                                <Table.DropdownButton>
+                                                                    Lihat
+                                                                </Table.DropdownButton>
+                                                                <Table.DropdownButton
+                                                                    onClick={() =>
+                                                                        editModalHandler(
+                                                                            item
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Edit
+                                                                </Table.DropdownButton>
+                                                                <Table.DropdownButton
+                                                                    onClick={() =>
+                                                                        deleteModalHandler(
+                                                                            item
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Delete
+                                                                </Table.DropdownButton>
+                                                            </Table.DropdownButton>
+                                                        </Menu>
+                                                    </Table.Dropdown>
+                                                </Table.Td>
+                                            </>
+                                        )}
                                     </tr>
                                 ))
                             ) : (

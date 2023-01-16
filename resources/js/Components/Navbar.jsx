@@ -5,7 +5,7 @@ import DropdownMenu from "../Components/DropdownMenu";
 import ResponsiveNavigation from "../Components/ResponsiveNavigation";
 
 export default function Navbar() {
-    const { auth } = usePage().props
+    const { auth } = usePage().props;
     return (
         <>
             <ResponsiveNavigation />
@@ -36,51 +36,59 @@ export default function Navbar() {
                             </div>
                             <div className="flex items-center">
                                 {auth.user ? (
-                                <div className="flex items-center">
-                                <DropdownMenu label={auth.user.name}>
-                                    <DropdownMenu.Link
-                                    href={route('dashboard')}
-                                    >
-                                        Dashboard
-                                    </DropdownMenu.Link>
-                                    <DropdownMenu.Link
-                                        href={route("alumni")}
-                                    >
-                                        Data Alumni
-                                    </DropdownMenu.Link>
-                                    <DropdownMenu.Link
-                                        href={route("anggota")}
-                                    >
-                                        Data Anggota
-                                    </DropdownMenu.Link>
-                                    <DropdownMenu.Link
-                                        href={route("event")}
-                                    >
-                                        Data Event
-                                    </DropdownMenu.Link>
-                                    <DropdownMenu.Link
-                                        href={route('logout')}
-                                        method="POST"
-                                        as="button"
-                                    >
-                                        Logout
-                                    </DropdownMenu.Link>
-                                </DropdownMenu>
-                            </div>
-                                ) : ''}
+                                    <div className="flex items-center">
+                                        <DropdownMenu label={auth.user.name}>
+                                            <DropdownMenu.Link
+                                                href={route("dashboard")}
+                                            >
+                                                Dashboard
+                                            </DropdownMenu.Link>
+                                            <DropdownMenu.Link
+                                                href={route("alumni")}
+                                            >
+                                                Data Alumni
+                                            </DropdownMenu.Link>
+                                            <DropdownMenu.Link
+                                                href={route("anggota")}
+                                            >
+                                                Data Anggota
+                                            </DropdownMenu.Link>
+                                            <DropdownMenu.Link
+                                                href={route("event")}
+                                            >
+                                                Data Event
+                                            </DropdownMenu.Link>
+                                            <DropdownMenu.Link
+                                                href={route("logout")}
+                                            >
+                                                Logout
+                                            </DropdownMenu.Link>
+                                        </DropdownMenu>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                                 {!auth.user ? (
-                                <div className="flex items-center">
-                                <NavLink
-                                    href={route("login")}
-                                    active={route().current("login")}
-                                >
-                                    Login
-                                </NavLink>
-                                <NavLink href={route("registrasi")}
-                                    active={route().current("registrasi")}>Register</NavLink>
+                                    <div className="flex items-center">
+                                        <NavLink
+                                            href={route("login")}
+                                            active={route().current("login")}
+                                        >
+                                            Login
+                                        </NavLink>
+                                        <NavLink
+                                            href={route("registrasi")}
+                                            active={route().current(
+                                                "registrasi"
+                                            )}
+                                        >
+                                            Register
+                                        </NavLink>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
                             </div>
-                                ) : ''}
-                                </div>
                         </div>
                     </div>
                 </div>

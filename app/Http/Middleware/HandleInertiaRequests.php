@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
             'angkatan' => Angkatan::all(),
             'auth' => [
                 'user' => $request->user(),
-                'role' => $request->user() ? $request->user()->roles : null,
+                'role' => $request->user() ? $request->user()->getRoleNames() : null,
             ],
             'flash' => [
                 'type' => $request->session()->get('type'),

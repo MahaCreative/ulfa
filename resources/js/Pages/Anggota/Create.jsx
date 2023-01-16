@@ -1,6 +1,7 @@
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
+import Progress from "../../Components/Progress";
 
 export default function Create({ onClose, model }) {
     const { angkatan } = usePage().props;
@@ -39,14 +40,17 @@ export default function Create({ onClose, model }) {
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm text-sm md:text-base font-light w-[70%] md:w-[80%] lg:w-full h-full flex items-center justify-center"
                 )}
             >
-                <img src={"images/Infinity-0.8s-200px.gif"} alt="" />
+                <Progress />
             </div>
             <form onSubmit={submitHandler} encType={"multipart/form-data"}>
                 <div className="flex gap-3 items-center">
                     <div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Nama Lengkap
                                 </label>
                                 <input
@@ -66,7 +70,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Jenis Kelamin
                                 </label>
                                 <select
@@ -90,7 +97,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Alamat
                                 </label>
                                 <textarea
@@ -110,7 +120,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Tempat Lahir
                                 </label>
                                 <input
@@ -130,7 +143,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Tanggal Lahir
                                 </label>
                                 <input
@@ -150,7 +166,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Telephone
                                 </label>
                                 <input
@@ -170,7 +189,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Angkatan
                                 </label>
                                 <select
@@ -197,7 +219,10 @@ export default function Create({ onClose, model }) {
                         </div>
                         <div className="my-1.5">
                             <div className="flex gap-3 items-center">
-                                <label htmlFor="" className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]">
+                                <label
+                                    htmlFor=""
+                                    className="text-sm md:text-md lg:text-lg w-[17vw] md:w-[15vw]"
+                                >
                                     Thumbnail
                                 </label>
                                 <input

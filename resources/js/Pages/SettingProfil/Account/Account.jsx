@@ -1,10 +1,10 @@
-import { Link, useForm } from "@inertiajs/inertia-react";
-import React, { useRef } from "react";
-import Navbar from "../../Components/Navbar";
-export default function Login({ profil }) {
+import { useForm } from '@inertiajs/inertia-react';
+import React, { useRef } from 'react'
+
+export default function Account() {
     const inputRef = useRef();
-    const { data, setData, post, errors } = useForm({
-        name: "",
+    const { data, setData, put, errors } = useForm({
+        name:'',
         email: "",
         password: "",
         password_confirmation: "",
@@ -15,38 +15,20 @@ export default function Login({ profil }) {
     };
     const submitHandler = (e) => {
         e.preventDefault();
-        post(route("registrasi"));
+        put(route("update-akun"));
     };
-
-    return (
-        <div className="min-h-screen w-full bg-emerald-400">
-            <div>
-                <Navbar />
-            </div>
-            <div className="w-full min-h-screen flex flex-col md:flex-row justify-between px-16 gap-3 items-center">
-                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16">
-                    <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
-                        SELAMAT DATANG
-                    </h4>
-                    <h1 className="my-3 font-fira font-semibold text-white text-6xl italic">
-                        ANGGOTA DAN ALUMNI
-                    </h1>
-                    <h1 className="my-3 capitalize font-fira font-bold text-white text-3xl italic ">
-                        {profil
-                            ? profil.nama
-                            : "ikatan pelajar putri nahdatul ulama"}
-                    </h1>
-                </div>
-                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16 px-4 py-1.5 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
+  return (
+        <div className=" px-4 w-full flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
                     <form
                         onSubmit={submitHandler}
                         encType={"multipart/form-data"}
+                        className='w-full'
                     >
-                        <h3 className="text-center text-4xl font-fira font-semibold text-emerald-400">
-                            Register a new user
-                        </h3>
-                        <div className="flex gap-3 items-center my-3">
-                            <div>
+                        <p className=" text-lg font-fira font-light text-emerald-400">
+                            Kosongkan jika tidak ingin merubah email dan username
+                        </p>
+                        <div className="flex gap-3 items-center my-3 w-full px-3">
+                            <div className='w-full'>
                                 <div className="my-1.5">
                                     <div className="flex gap-3 items-center">
                                         <label htmlFor="" className="w-[14vw]">
@@ -59,7 +41,6 @@ export default function Login({ profil }) {
                                             className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                             type={"text"}
                                             placeholder="username"
-                                            required
                                         />
                                     </div>
                                     {errors.email && (
@@ -80,7 +61,6 @@ export default function Login({ profil }) {
                                             className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
                                             type={"email"}
                                             placeholder="Email"
-                                            required
                                         />
                                     </div>
                                     {errors.email && (
@@ -137,18 +117,10 @@ export default function Login({ profil }) {
                                 type="submit"
                                 className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
                             >
-                                Register
+                                Update
                             </button>
-                            <Link
-                                href={route("login")}
-                                className="rounded-md bg-red-500 text-white font-fira px-4 py-1.5"
-                            >
-                                Already have an account? Sign in →
-                            </Link>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    );
+  )
 }

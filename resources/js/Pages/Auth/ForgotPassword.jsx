@@ -22,8 +22,8 @@ export default function Login({ profil }) {
             <div>
                 <Navbar />
             </div>
-            <div className="w-full min-h-screen flex justify-between px-16 gap-3 items-center">
-                <div className="w-1/2 pl-16">
+            <div className="w-full flex-col md:flex-row min-h-screen flex justify-between px-16 gap-3 items-center">
+                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16">
                     <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
                         SELAMAT DATANG
                     </h4>
@@ -36,13 +36,14 @@ export default function Login({ profil }) {
                             : "ikatan pelajar putri nahdatul ulama"}
                     </h1>
                 </div>
-                <div className="w-1/2 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
+                <div className="w-[90%] md:w-[70%] lg:w-1/2 px-4 lg:pl-16 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
                     <form
                         onSubmit={submitHandler}
                         encType={"multipart/form-data"}
                     >
                         <h3 className="text-xl font-fira font-semibold text-emerald-400">
-                            Masukkan Email Untuk Mendapatkan Email Reset Password
+                            Masukkan Email Untuk Mendapatkan Email Reset
+                            Password
                         </h3>
                         <div className="flex gap-3 items-center my-3">
                             <div>
@@ -68,26 +69,25 @@ export default function Login({ profil }) {
                                     )}
                                 </div>
                                 <button
-                            type=""
-                                className="rounded-md bg-emerald-500 text-white font-fira px-4 py-1.5"
-                            >
-                                Send Email
-                            </button>
+                                    type=""
+                                    className="rounded-md bg-emerald-500 text-white font-fira px-4 py-1.5"
+                                >
+                                    Send Email
+                                </button>
                             </div>
                         </div>
                         <div className="flex gap-3 ">
-                        
                             <Link
-                                href={route('login')}
+                                href={route("login")}
                                 className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
                             >
                                 Already have an account? Sign in →
                             </Link>
                             <Link
-                                href={route('registrasi')}
+                                href={route("registrasi")}
                                 className="rounded-md bg-red-500 text-white font-fira px-4 py-1.5"
                             >
-                               Create an account.
+                                Create an account.
                             </Link>
                         </div>
                     </form>

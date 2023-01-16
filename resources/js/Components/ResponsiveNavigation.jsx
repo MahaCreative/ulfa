@@ -3,7 +3,7 @@ import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
 export default function ResponsiveNavigation() {
-    const { auth } = usePage().props
+    const { auth } = usePage().props;
     console.log(auth.user);
     return (
         <nav className="border-b border-emerald-500 bg-emerald-500 px-4 py-4 lg:hidden z-[99999]">
@@ -37,24 +37,16 @@ export default function ResponsiveNavigation() {
                         Event
                     </DropdownMenu.Link>
                     {auth.user ? (
-                        <DropdownMenu.Link
-                        // href={route('logout')}
-                        method="POST"
-                        as="button"
-                    >
-                        Logout
-                    </DropdownMenu.Link>
+                        <DropdownMenu.Link href={route("logout")}>
+                            Logout
+                        </DropdownMenu.Link>
                     ) : (
                         <div>
-                            <DropdownMenu.Link
-                            href={route('login')}
-                                                >
-                            Login
-                                </DropdownMenu.Link>
-                                <DropdownMenu.Link
-                        href={route('registrasi')}
-                    >
-                        Register
+                            <DropdownMenu.Link href={route("login")}>
+                                Login
+                            </DropdownMenu.Link>
+                            <DropdownMenu.Link href={route("registrasi")}>
+                                Register
                             </DropdownMenu.Link>
                         </div>
                     )}

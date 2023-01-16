@@ -5,15 +5,15 @@ export default function ResetPassword() {
     const { token } = usePage().props;
     const inputRef = useRef();
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: '',
-        token: '',
+        email: "",
+        password: "",
+        remember: "",
+        token: "",
     });
     data.token = token;
     useEffect(() => {
         return () => {
-            reset('password');
+            reset("password");
         };
     }, []);
     const changeHandler = (e) => {
@@ -21,7 +21,7 @@ export default function ResetPassword() {
     };
     const submitHandler = (e) => {
         e.preventDefault();
-        post(route('password.update'));
+        post(route("password.update"));
     };
 
     return (
@@ -29,8 +29,8 @@ export default function ResetPassword() {
             <div>
                 <Navbar />
             </div>
-            <div className="w-full min-h-screen flex justify-between px-16 gap-3 items-center">
-                <div className="w-1/2 pl-16">
+            <div className="w-full min-h-screen flex flex-col md:flex-row justify-between px-16 gap-3 items-center">
+                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16">
                     <h4 className="my-3 font-fira font-extralight text-white text-3xl italic">
                         SELAMAT DATANG
                     </h4>
@@ -43,7 +43,7 @@ export default function ResetPassword() {
                             : "ikatan pelajar putri nahdatul ulama"}
                     </h1>
                 </div>
-                <div className="w-1/2 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
+                <div className="w-[90%] md:w-[70%] lg:w-1/2 lg:pl-16 px-4 py-1.5 flex justify-center bg-white rounded-md shadow-sm shadow-gray-400/30">
                     <form
                         onSubmit={submitHandler}
                         encType={"multipart/form-data"}
@@ -125,20 +125,24 @@ export default function ResetPassword() {
                                 Reset Password
                             </button>
                             <Link
-                                href={route('login')}
+                                href={route("login")}
                                 className="rounded-md bg-blue-500 text-white font-fira px-4 py-1.5"
                             >
                                 Already have an account? Sign in →
                             </Link>
                             <Link
-                                href={route('registrasi')}
+                                href={route("registrasi")}
                                 className="rounded-md bg-red-500 text-white font-fira px-4 py-1.5"
                             >
-                                
                                 Register
                             </Link>
                         </div>
-                        <Link href={route('forgot_password')} className="text-sm italic text-emerald-400 hover:cursor-pointer hover:text-emerald-600 duration-300">Lupa Password</Link>
+                        <Link
+                            href={route("forgot_password")}
+                            className="text-sm italic text-emerald-400 hover:cursor-pointer hover:text-emerald-600 duration-300"
+                        >
+                            Lupa Password
+                        </Link>
                     </form>
                 </div>
             </div>

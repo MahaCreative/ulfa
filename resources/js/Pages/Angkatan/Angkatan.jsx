@@ -1,40 +1,20 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import App from "../../Layout/App";
-import Table from "../../Components/Tables";
 import { Menu } from "@headlessui/react";
-import Pagination from "../../Components/Pagination";
-import UseModal from "../../CostumHook/Modal/UseModal";
-import Modal from "../../Components/Modal";
-import { debounce } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
-import Update from "./Update";
-import Create from "./Create";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
-import { usePage } from "@inertiajs/inertia-react";
-import Progress from "../../Components/Progress";
+import { useState } from "react";
 import Date from "../../Components/Date";
-export default function Anggota(props) {
-    const { data: anggota, meta, links } = props.anggota;
+import Modal from "../../Components/Modal";
+import Table from "../../Components/Tables";
+import UseModal from "../../CostumHook/Modal/UseModal";
+import App from "../../Layout/App";
+import Create from "./Create";
+import Update from "./Update";
+export default function Angkatan({ angkatan }) {
     const { auth } = usePage().props;
     const [loading, setLoading] = useState(false);
-    const [params, setParams] = useState({ search: "" });
     const [model, setModel] = useState([]);
-    const reload = useCallback(
-        debounce((query) => {
-            Inertia.get(
-                route("anggota"),
-                query,
-                {
-                    preserveState: true,
-                    onBefore: () => setLoading(true),
-                    onSuccess: () => setLoading(false),
-                },
-                150
-            );
-        }),
-        []
-    );
-    useEffect(() => reload(params), [params]);
+
     const {
         open: addModalOpen,
         close: addModalClose,
@@ -45,22 +25,15 @@ export default function Anggota(props) {
         close: editModalClose,
         modal: editTrigger,
     } = UseModal();
+
     const {
         open: deleteModalOpen,
         close: deleteModalClose,
         modal: deleteTrigger,
     } = UseModal();
-    const {
-        open: lihatModalOpen,
-        close: lihatModalClose,
-        modal: lihatTrigger,
-    } = UseModal();
-    const addModalHandler = () => {
-        // setModel('')
-        addModalOpen();
-    };
-    const editModalHandler = (model) => {
-        setModel(model);
+    // Modal
+    const editModalHandler = (modal) => {
+        setModel(modal);
         editModalOpen();
     };
     const deleteModalHandler = (model) => {
@@ -68,7 +41,7 @@ export default function Anggota(props) {
         deleteModalOpen();
     };
     function submitDelete() {
-        Inertia.delete(route("anggota-delete", model), {
+        Inertia.delete(route("angkatan-delete", model), {
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {
@@ -77,38 +50,24 @@ export default function Anggota(props) {
             },
         });
     }
+
     return (
-        <div className="w-full p-8">
+        <div>
+            <Date />
             <div
                 className={clsx(
                     loading ? "fixed" : "hidden",
                     " left-0 top-0 bg-slate-500/30 backdrop-blur-sm w-full h-full flex items-center justify-center"
                 )}
             >
-                <Progress />
+                <p className="text-white">a</p>
             </div>
             <div>
                 <Modal
                     size={"w-[95%] md:w-[80%] lg:w-[50%]"}
-                    trigger={addTrigger}
-                    closeModal={addModalClose}
-                    headerTitle={"Tambah Anggota"}
-                >
-                    <Create onClose={addModalClose} model={model} />
-                </Modal>
-                <Modal
-                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
-                    trigger={editTrigger}
-                    closeModal={editModalClose}
-                    headerTitle={"Edit Anggota"}
-                >
-                    <Update onClose={editModalClose} model={model} />
-                </Modal>
-                <Modal
-                    size={"w-[95%] md:w-[80%] lg:w-[50%]"}
                     trigger={deleteTrigger}
                     closeModal={deleteModalClose}
-                    headerTitle={"delete Anggota"}
+                    headerTitle={"delete Angkatan"}
                 >
                     <p>Apakah Anda Yakin Akan Menghapus Data Ini ???</p>
                     <div className="flex gap-3 my-4">
@@ -128,63 +87,58 @@ export default function Anggota(props) {
                         </button>
                     </div>
                 </Modal>
+                <Modal
+                    size={"w-[70%] md:w-[50%] lg:w-[30%]"}
+                    trigger={addTrigger}
+                    closeModal={addModalClose}
+                    headerTitle={"Tambah Angkatan"}
+                >
+                    <Create onClose={addModalClose} />
+                </Modal>
+                <Modal
+                    size={"w-[70%] md:w-[50%] lg:w-[30%]"}
+                    trigger={editTrigger}
+                    closeModal={editModalClose}
+                    headerTitle={"Edit Angkatan"}
+                >
+                    <Update model={model} onClose={editModalClose} />
+                </Modal>
             </div>
 
-            <div>
-                <Date />
+            <div className="flex gap-3 px-4 mx-3 my-2">
+                {auth.role[0] === "admin" && (
+                    <>
+                        <button
+                            onClick={addModalOpen}
+                            className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
+                        >
+                            Tambah Angkatan
+                        </button>
+                    </>
+                )}
             </div>
-            <p className="text-emerald-400">
-                Data Anggota Ikatan Pelajar Putri Nahdatul Ulama
-            </p>
-            <div className="px-4 border border-emerald-300 rounded-lg py-2.5">
-                <div className="flex justify-between items-center py-2.5">
-                    <div className="flex gap-3">
-                        {auth.role[0] === "admin"}
-                        <input
-                            onChange={(e) =>
-                                setParams({ ...params, search: e.target.value })
-                            }
-                            className="rounded-md border border-emerald-500 text-emerald-400 font-fira outline-none focus:ring focus:ring-emerald-400/30 px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl"
-                            type={"text"}
-                            placeholder="Cari"
-                        />
-                    </div>
-                </div>
-                <div>
+            <div className="px-4 py-3 mx-3">
+                <div className="border-gray-300/40 rounded-lg overflow-hidden border">
                     <Table>
-                        <Table.Thead>
+                        <Table.Thead className={"bg-emerald-400"}>
                             <tr>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">
                                     No
                                 </Table.Th>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">
-                                    Nama
+                                    Tahun
                                 </Table.Th>
                                 <Table.Th className="text-sm md:text-md lg:text-lg">
-                                    Telp
+                                    Aksi
                                 </Table.Th>
-                                <Table.Th className="text-sm md:text-md lg:text-lg">
-                                    Angktan
-                                </Table.Th>
-                                {auth.role[0] === "admin" && (
-                                    <Table.Th className="text-sm md:text-md lg:text-lg">
-                                        Aksi
-                                    </Table.Th>
-                                )}
                             </tr>
                         </Table.Thead>
                         <Table.Tbody>
-                            {anggota ? (
-                                anggota.map((item, key) => (
+                            {angkatan ? (
+                                angkatan.map((item, key) => (
                                     <tr key={key + 1}>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {key + 1}
-                                        </Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">
-                                            {item.nama_lengkap}
-                                        </Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">
-                                            {item.telp}
                                         </Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {item.angkatan}
@@ -192,12 +146,9 @@ export default function Anggota(props) {
                                         {auth.role[0] === "admin" && (
                                             <>
                                                 <Table.Td className="text-sm md:text-md lg:text-lg">
-                                                    <Table.Dropdown>
+                                                    <Table.Dropdown className="text-sm md:text-md lg:text-lg">
                                                         <Menu>
                                                             <Table.DropdownButton>
-                                                                <Table.DropdownButton>
-                                                                    Lihat
-                                                                </Table.DropdownButton>
                                                                 <Table.DropdownButton
                                                                     onClick={() =>
                                                                         editModalHandler(
@@ -229,10 +180,10 @@ export default function Anggota(props) {
                             )}
                         </Table.Tbody>
                     </Table>
-                    <Pagination meta={meta} links={links}></Pagination>
                 </div>
             </div>
         </div>
     );
 }
-Anggota.layout = (page) => <App children={page} />;
+
+Angkatan.layout = (page) => <App children={page} />;

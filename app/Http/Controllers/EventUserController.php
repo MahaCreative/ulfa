@@ -27,4 +27,12 @@ class EventUserController extends Controller
         $eventSelesai = Event::where('tanggal_berakhir', '<', Carbon::now())->latest()->get()->take(10);
         return inertia('Event/User/Show', ['event' => $event, 'event_berlangsung' => $eventBerlangsung, 'event_terbaru' => $eventTerbaru, 'event_berakhir' => $eventSelesai]);
     }
+    public function search(Request $request){
+        $event = Event::where('judul', 'like', '%'.$request->search.'%')->latest()->get();
+        // dd($event);
+        $eventBerlangsung = Event::where([['tanggal_mulai', '>=', Carbon::now()], ['tanggal_berakhir', '<=', Carbon::now()->endOfMonth()]])->latest()->get()->take(5);
+        $eventTerbaru = Event::latest()->get()->take(20);
+        $eventSelesai = Event::where('tanggal_berakhir', '<', Carbon::now())->latest()->get()->take(10);
+        return inertia('Event/User/Index', ['event' => EventResource::collection($event), 'event_berlangsung' => $eventBerlangsung, 'event_terbaru' => $eventTerbaru, 'event_berakhir' => $eventSelesai]);
+    }
 }

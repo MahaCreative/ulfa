@@ -22,8 +22,8 @@ class CreateProfileAkunsTable extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->bigInteger('telp');
-            $table->foreignId('angkatan_id');
-            $table->string('status_anggota');
+            $table->foreignId('angkatan_id')->nullable();
+            $table->string('status_anggota')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('tempat_bekerja')->nullable();
             $table->timestamps();
