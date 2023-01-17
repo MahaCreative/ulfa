@@ -15,24 +15,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        ProfileAkun::factory(10)->create();
 
         $rolesss = ['user'];
-        $user = User::all();
-        $user_admin = User::create([
+
+        return $this->call([
+            RoleSeeder::class,
+           
+        ]);
+                 $user_admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
-        ]);
-        return $this->call([
-            RoleSeeder::class,
-        ]);
+         ]);
         $user_admin->assignRole('admin');
-        foreach ($user as $item) {
-            $item->assignRole($rolesss[rand(0, 1)]);
-        }
-
-
-
+    
     }
 }
