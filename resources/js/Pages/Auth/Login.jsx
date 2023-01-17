@@ -98,7 +98,7 @@ export default function Login({ profil }) {
                                             onChange={changeHandler}
                                             name="password_confirmation"
                                             className="w-full rounded-md border border-emerald-500 text-emerald-400 font-fira px-4 py-1.5 outline-none focus:ring focus:ring-emerald-400/30 "
-                                            type={"text"}
+                                            type={"password"}
                                             placeholder="Password Confirmation"
                                         />
                                     </div>

@@ -139,7 +139,19 @@ export default function Anggota(props) {
             <div className="px-4 border border-emerald-300 rounded-lg py-2.5">
                 <div className="flex justify-between items-center py-2.5">
                     <div className="flex gap-3">
-                        {auth.role[0] === "admin"}
+                        {auth.role[0] === "admin" && (
+                            <>
+                                <button
+                                    onClick={addModalHandler}
+                                    className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
+                                >
+                                    Tambah Anggota
+                                </button>
+                                <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
+                                    Cetak Cetak
+                                </button>
+                            </>
+                        )}
                         <input
                             onChange={(e) =>
                                 setParams({ ...params, search: e.target.value })
