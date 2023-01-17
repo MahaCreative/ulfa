@@ -18,16 +18,12 @@ class DatabaseSeeder extends Seeder
 
         $rolesss = ['user'];
 
+        User::factory()->create();
         return $this->call([
             RoleSeeder::class,
-           
         ]);
-                 $user_admin = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('password'),
-         ]);
-        $user_admin->assignRole('admin');
+
+        
     
     }
 }
