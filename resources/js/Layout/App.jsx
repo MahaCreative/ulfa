@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 export default function App({ profile, children }) {
     const [active, setActive] = useState(false);
     const { auth } = usePage().props;
-    console.log(auth.role[0]);
+
     const menuHandler = () => {
         setActive(!active);
     };

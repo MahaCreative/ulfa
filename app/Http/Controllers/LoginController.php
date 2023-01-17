@@ -16,8 +16,9 @@ class LoginController extends Controller
         $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'confirmed'],
-            'password_confirmation' => ['required', 'same:password']
+            'password_confirmation' => ['required']
         ]);
+        
 
         if (Auth::attempt($request->only('email', 'password_confirmation', 'password'))) {
             session()->regenerate();
@@ -25,10 +26,11 @@ class LoginController extends Controller
                 'type' => 'success',
                 'message' => 'Berhasil Login'
             ]);
-        } else {
-            return redirect()->route('dashboard')->with([
-                'type' => 'error',
-                'message' => 'Email atau password anda salah'
+        } else{
+        session()->regenerate();
+        return redirect()->back()->with([
+                'type' => 'errors',
+                'message' => 'Gagal Login'
             ]);
         }
     }
