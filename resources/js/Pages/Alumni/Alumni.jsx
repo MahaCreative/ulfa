@@ -13,6 +13,7 @@ import App from "../../Layout/App";
 import { usePage } from "@inertiajs/inertia-react";
 import Progress from "../../Components/Progress";
 import Date from "../../Components/Date";
+import Images from "../../Components/Images";
 export default function Alumni(props) {
     const { data: alumni, meta, links } = props.alumni;
     const { auth } = usePage().props;
@@ -77,6 +78,13 @@ export default function Alumni(props) {
             },
         });
     }
+    const [openImage, setOpenImage] = useState(false);
+    const [dataImage, setDataImage] = useState(null);
+    // image open
+    const openImageHandler = (item) => {
+        setDataImage(item);
+        setOpenImage(true);
+    };
     return (
         <div className="w-full p-8">
             <div
@@ -129,7 +137,11 @@ export default function Alumni(props) {
                     </div>
                 </Modal>
             </div>
-
+            <Images
+                img={dataImage}
+                closeImage={openImage}
+                setCloseImage={setOpenImage}
+            />
             <div>
                 <Date />
             </div>
@@ -146,9 +158,6 @@ export default function Alumni(props) {
                                     className="rounded-md bg-blue-500 text-white font-fira px-1.5 md:px-4 py-1.5 text-sm md:text-md lg:text-lg xl:text-xl"
                                 >
                                     Tambah Alumni
-                                </button>
-                                <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
-                                    Cetak Alumni
                                 </button>
                             </>
                         )}
@@ -195,7 +204,19 @@ export default function Alumni(props) {
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {key + 1}
                                         </Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">
+                                        <Table.Td className="text-sm md:text-md lg:text-lg justify-center flex gap-2 items-center">
+                                            <img
+                                                src={
+                                                    "/storage/" + item.thumbnail
+                                                }
+                                                alt=""
+                                                onClick={() =>
+                                                    openImageHandler(
+                                                        item.thumbnail
+                                                    )
+                                                }
+                                                className="h-12 w-12 p-1.5 border border-gray-400/50 shadow-sm rounded-md hover:cursor-pointer hover:bg-emerald-400/40 transition duration-300 ease-in"
+                                            />
                                             {item.nama_lengkap}
                                         </Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">

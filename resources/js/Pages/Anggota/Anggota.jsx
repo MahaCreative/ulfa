@@ -13,6 +13,7 @@ import clsx from "clsx";
 import { usePage } from "@inertiajs/inertia-react";
 import Progress from "../../Components/Progress";
 import Date from "../../Components/Date";
+import Images from "../../Components/Images";
 export default function Anggota(props) {
     const { data: anggota, meta, links } = props.anggota;
     const { auth } = usePage().props;
@@ -77,6 +78,13 @@ export default function Anggota(props) {
             },
         });
     }
+    const [openImage, setOpenImage] = useState(false);
+    const [dataImage, setDataImage] = useState(null);
+    // image open
+    const openImageHandler = (item) => {
+        setDataImage(item);
+        setOpenImage(true);
+    };
     return (
         <div className="w-full p-8">
             <div
@@ -87,6 +95,11 @@ export default function Anggota(props) {
             >
                 <Progress />
             </div>
+            <Images
+                img={dataImage}
+                closeImage={openImage}
+                setCloseImage={setOpenImage}
+            />
             <div>
                 <Modal
                     size={"w-[95%] md:w-[80%] lg:w-[50%]"}
@@ -147,9 +160,6 @@ export default function Anggota(props) {
                                 >
                                     Tambah Anggota
                                 </button>
-                                <button className="rounded-md bg-emerald-500 text-white font-fira px-1.5 md:px-4 text-sm md:text-md lg:text-lg xl:text-xl">
-                                    Cetak Cetak
-                                </button>
                             </>
                         )}
                         <input
@@ -192,8 +202,20 @@ export default function Anggota(props) {
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {key + 1}
                                         </Table.Td>
-                                        <Table.Td className="text-sm md:text-md lg:text-lg">
-                                            {item.nama_lengkap}
+                                        <Table.Td className="text-sm md:text-md lg:text-lg flex gap-2 items-center">
+                                            <img
+                                                src={
+                                                    "/storage/" + item.thumbnail
+                                                }
+                                                alt=""
+                                                onClick={() =>
+                                                    openImageHandler(
+                                                        item.thumbnail
+                                                    )
+                                                }
+                                                className="h-12 w-12 p-1.5 border border-gray-400/50 shadow-sm rounded-md hover:cursor-pointer hover:bg-emerald-400/40 transition duration-300 ease-in"
+                                            />
+                                            <p>{item.nama_lengkap}</p>
                                         </Table.Td>
                                         <Table.Td className="text-sm md:text-md lg:text-lg">
                                             {item.telp}

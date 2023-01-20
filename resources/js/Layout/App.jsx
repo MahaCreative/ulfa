@@ -28,7 +28,7 @@ export default function App({ profile, children }) {
                     <div>
                         <h3 className="font-fira  w-full flex items-center justify-center font-bold text-4xl text-white">
                             {" "}
-                            LPPNU
+                            IPPNU
                         </h3>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ export default function App({ profile, children }) {
                                         Event
                                     </Link>
                                     <Link
-                                        className="border-y border-white/80 py-1.5 px-3 block text-white my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition"
+                                        className="border-y border-white/80 py-1.5 px-3 block text-black my-1.5 hover:cursor-pointer hover:bg-emerald-600 duration-300 transition"
                                         href={route("angkatan")}
                                     >
                                         Angkatan
