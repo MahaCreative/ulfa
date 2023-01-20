@@ -64,7 +64,7 @@ class AlumniController extends Controller
     public function update(Request $request)
     {
 
-        // dd($request->all());
+        dd($request->all());
         $profile = ProfileAkun::findOrFail($request->data['id']);
         // dd($profile);
         // $attr = $request->validate([

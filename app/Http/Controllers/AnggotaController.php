@@ -63,7 +63,7 @@ class AnggotaController extends Controller
     {
 
         $profile = ProfileAkun::findOrFail($request->data['id']);
-        dd($request->all());
+        // dd($request->all());
         // dd($profile);
         // $attr = $request->validate([
         //     'nama_lengkap' => 'required|min:6',
