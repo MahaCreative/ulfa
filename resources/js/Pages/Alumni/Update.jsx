@@ -1,3 +1,4 @@
+import { Inertia } from "@inertiajs/inertia";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
@@ -21,7 +22,10 @@ export default function Update({ onClose, model }) {
     const [loading, setLoading] = useState(false);
     const submitHandler = (e) => {
         e.preventDefault();
-        put(route("alumni-update"), {
+        Inertia.post(route("alumni-update"), {
+            _method: "put",
+            data: data,
+            thumbnail: data.thumbnail,
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {

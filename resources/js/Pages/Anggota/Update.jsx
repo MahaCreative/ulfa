@@ -20,7 +20,10 @@ export default function Update({ onClose, model }) {
     const [loading, setLoading] = useState(false);
     const submitHandler = (e) => {
         e.preventDefault();
-        put(route("anggota-update"), {
+        Inertia.post(route("anggota-update"), {
+            _method: "put",
+            data: data,
+            thumbnail: data.thumbnail,
             onStart: () => setLoading(true),
             onError: () => setLoading(false),
             onSuccess: () => {

@@ -62,7 +62,8 @@ class AnggotaController extends Controller
     public function update(Request $request)
     {
 
-        $profile = ProfileAkun::findOrFail($request->id);
+        $profile = ProfileAkun::findOrFail($request->data['id']);
+        dd($request->all());
         // dd($profile);
         // $attr = $request->validate([
         //     'nama_lengkap' => 'required|min:6',
@@ -77,13 +78,13 @@ class AnggotaController extends Controller
         $url = $request->file('thumbnail') ? $request->file('thumbnail')->storeAs('images/profile', $request->file('thumbnail')->getClientOriginalName()) : null;
 
         $profile->update([
-            'nama_lengkap' => $request->nama_lengkap,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'alamat' => $request->alamat,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => Carbon::create($request->tanggal_lahir),
-            'telp' => $request->telp,
-            'angkatan_id' => $request->angkatan,
+            'nama_lengkap' => $request->data['nama_lengkap'],
+            'jenis_kelamin' => $request->data['jenis_kelamin'],
+            'alamat' => $request->data['alamat'],
+            'tempat_lahir' => $request->data['tempat_lahir'],
+            'tanggal_lahir' => Carbon::create($request->data['tanggal_lahir']),
+            'telp' => $request->data['telp'],
+            'angkatan_id' => $request->data['angkatan'],
             'status_anggota' => 'Anggota',
             'thumbnail' => $url
         ]);
