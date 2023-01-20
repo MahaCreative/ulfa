@@ -1,3 +1,4 @@
+import { Inertia } from "@inertiajs/inertia";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
