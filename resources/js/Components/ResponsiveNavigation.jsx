@@ -45,9 +45,6 @@ export default function ResponsiveNavigation() {
                             <DropdownMenu.Link href={route("login")}>
                                 Login
                             </DropdownMenu.Link>
-                            <DropdownMenu.Link href={route("registrasi")}>
-                                Register
-                            </DropdownMenu.Link>
                         </div>
                     )}
                 </DropdownMenu>

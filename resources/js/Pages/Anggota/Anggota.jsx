@@ -25,6 +25,7 @@ export default function Anggota(props) {
             Inertia.get(
                 route("anggota"),
                 query,
+
                 {
                     preserveState: true,
                     onBefore: () => setLoading(true),

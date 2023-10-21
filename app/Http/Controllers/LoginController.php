@@ -18,7 +18,7 @@ class LoginController extends Controller
             'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required']
         ]);
-        
+
 
         if (Auth::attempt($request->only('email', 'password_confirmation', 'password'))) {
             session()->regenerate();

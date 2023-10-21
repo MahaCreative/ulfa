@@ -76,14 +76,6 @@ export default function Navbar() {
                                         >
                                             Login
                                         </NavLink>
-                                        <NavLink
-                                            href={route("registrasi")}
-                                            active={route().current(
-                                                "registrasi"
-                                            )}
-                                        >
-                                            Register
-                                        </NavLink>
                                     </div>
                                 ) : (
                                     ""
